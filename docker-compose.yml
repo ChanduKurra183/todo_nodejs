@@ -1,0 +1,29 @@
+version: '3'
+services:
+  client-server:
+    image: "chandukurra183/todo-client"
+    hostname: client-server
+    mem_limit: 128m
+    restart: always
+  backend-server:
+    image: "chandukurra183/todo-server"
+    hostname: backend-server
+    mem_limit: 128m
+    restart: always
+    environment:
+      - NODE_ENV=dev
+      - PORT=4000
+      - JWT_SECRET=$JWT_SECRET
+      - SERVER_HOST=backend-server
+      - FRONTEND_HOST=client-server
+      - SESSION_SECRET=$SESSION_SECRET
+      - DB_URL=$DB_URL
+      - EMAIL=$EMAIL
+      - EMAIL_PASSWORD=$EMAIL_PASSWORD
+  nginx:
+    image: "chandukurra183/todo-nginx"
+    hostname: nginx
+    mem_limit: 128m
+    restart: always
+    ports:
+      - "80:80" 
