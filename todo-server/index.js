@@ -14,7 +14,6 @@ const task = require('./router/task')
 const PORT = Config.PORT;
 const DB_URL = Config.DB_URL;
 const HOST =  Config.SERVER_HOST;
-const FRONTEND_HOST = Config.FRONTEND_HOST;
 
 const app = express();
 
@@ -68,7 +67,7 @@ app.get("/", async (req, res, next) => {
     console.log(req.session)
 
     // req.session.isAuth = true;
-    res.send("You are on root")
+    res.send("Backend")
 })
 
 
