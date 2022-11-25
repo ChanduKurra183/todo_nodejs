@@ -67,7 +67,7 @@ app.get("/", async (req, res, next) => {
     console.log(req.session)
 
     // req.session.isAuth = true;
-    res.send("Backend")
+    res.send("You are on root")
 })
 
 
